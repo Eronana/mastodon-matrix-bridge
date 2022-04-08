@@ -17,7 +17,7 @@ async function getDirectRoomId(client, userId) {
         }
         user = members[1];
       }
-      if (user.event.user_id === userId && user.event.prev_content.is_direct && user.event.prev_content.membership === 'invite') {
+      if (user.event.user_id === userId && user.event.prev_content && user.event.prev_content.is_direct && user.event.prev_content.membership === 'invite') {
         return cache[userId] = roomId;
       }
     }
